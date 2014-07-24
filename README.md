@@ -22,41 +22,47 @@ overview.
 ####Creating a SOM
 `s = som(numInputs=3, shape=(10,10,10), alphaInit=.6)`
 
-Training a SOM manually
-    s.setLearnParams(numIterations=1000)
-    for d in data:
-        s.findBMU(d)
-        s.updateSOM()
-        s.updateLearnParams()
+####Training a SOM manually
+```
+s.setLearnParams(numIterations=1000)
+for d in data:
+    s.findBMU(d)
+    s.updateSOM()
+    s.updateLearnParams()
+```
 
-Training a SOM automatically, using utils
-    from utils import runData
-    runData(s, data, 1000)
+####Training a SOM automatically, using utils
+```
+from utils import runData
+runData(s, data, 1000)
+```
 
-Viewing the training of a 2D SOM
-    animateTraining(s, data, imshape=(28,28))
+####Viewing the training of a 2D SOM
+`animateTraining(s, data, imshape=(28,28))`
 
-Viewing the activation vectors of a 2D or 3D SOM
-    simpleView(s, imshape=(28,28))
+####Viewing the activation vectors of a 2D or 3D SOM
+`simpleView(s, imshape=(28,28))`
 
-Viewing the strength of activations for a 2D SOM
-    fullView(s, data, data)
+####Viewing the strength of activations for a 2D SOM
+`fullView(s, data, data)`
 
-Viewing the activations of a 2D SOM for which the input is not an image
-    fullView(s, data, imageSet)
+####Viewing the activations of a 2D SOM for which the input is not an image
+`fullView(s, data, imageSet)`
 
-Viewing the activations of a 2D SOM for which there is only one image per class
-    fullView(s, data, images, labels)
+####Viewing the activations of a 2D SOM for which there is only one image per class
+`fullView(s, data, images, labels)`
 
-Training a simple NN using ANN and showing a confusion matrix
-    from ANN import *
-    from utils import *
+####Training a simple NN using ANN and showing a confusion matrix
+```
+from ANN import *
+from utils import *
 
-    runData(s, data, 1000)
-    bmus = getBMUs(s, data)
-    net = ANN(len(s.som.shape)-1, 100, numClasses)
-    net.Train(bmus, labels, numTimes=7)
-    confusionMatrix, misses = net.Confuse(bmus, labels)
-    print confusionMatrix
-    print float(misses)/float(bmus.shape[0])
+runData(s, data, 1000)
+bmus = getBMUs(s, data)
+net = ANN(len(s.som.shape)-1, 100, numClasses)
+net.Train(bmus, labels, numTimes=7)
+confusionMatrix, misses = net.Confuse(bmus, labels)
+print confusionMatrix
+print float(misses)/float(bmus.shape[0])
+```
 
