@@ -155,7 +155,7 @@ def fullView(som, data, images, labels=None):
     H,W,_ = som.som.shape
     color = len(images[0].shape) == 3
     imH, imW = images[0].shape[:2]
-    imshape = (H*imH,W*imW) + images[0].shape[2:]
+    imshape = (W*imW,H*imH) + images[0].shape[2:]
     view = zeros(imshape)
 
     for i,d in enumerate(data):
@@ -163,7 +163,7 @@ def fullView(som, data, images, labels=None):
         view[(x * imW):((x+1) * imW), (y * imH):((y+1) * imH), ...] += \
             images[labels[i]] if labels is not None else images[i]
 
-    view /= data.shape[0]
+    #view /= data.shape[0]
     pp.imshow(view)
     pp.show()
 
