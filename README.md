@@ -1,4 +1,6 @@
 A Self Organizing Map Library for Topological Analysis
+======================================================
+
 Alexander Saites
 July 2014
 
@@ -6,14 +8,14 @@ This library is designed to simplify the process of creating and analyzing self
 organizing maps in python. It includes several utility functions for creating
 and training SOMs. It is free to use with citation.
 
---------------
+
 Dependencies
 --------------
 SimpleSOM makes heavy use of numpy and matplotlib. You should install scipy
 before using SimpleSOM.
 
 
---------------
+
 Quick Guide
 --------------
 Documentation is included with the source, but this will give you a quick 
