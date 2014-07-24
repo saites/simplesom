@@ -19,8 +19,8 @@ Quick Guide
 Documentation is included with the source, but this will give you a quick 
 overview.
 
-###Creating a SOM
-'s = som(numInputs=3, shape=(10,10,10), alphaInit=.6)'
+####Creating a SOM
+`s = som(numInputs=3, shape=(10,10,10), alphaInit=.6)`
 
 Training a SOM manually
     s.setLearnParams(numIterations=1000)
